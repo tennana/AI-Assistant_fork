@@ -12,7 +12,8 @@ from modules import initialize
 from modules_forge.initialization import initialize_forge
 from modules_forge import main_thread
 from utils import application
-
+import gradio as gr
+from fastapi.responses import RedirectResponse
 
 from uvicorn import Config, Server
 import asyncio
@@ -52,7 +53,17 @@ async def api_only_worker(shutdown_event: Event):
 
     app = FastAPI()
 
-    app = FastAPI()
+    # Gradioインターフェースの設定
+    def greet(name):
+        return f"Hello, {name}!"
+
+    interface = gr.Interface(fn=greet, inputs="text", outputs="text")
+    _, gradio_url, _ = interface.launch(share=False, prevent_thread_lock=True)
+    # FastAPIのルートにGradioのURLにリダイレクトを設定
+    @app.get("/", response_class=RedirectResponse)
+    async def read_root():
+        return RedirectResponse(url=gradio_url)
+
     initialize_util.setup_middleware(app)
     api = create_api(app)
 
