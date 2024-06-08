@@ -29,7 +29,7 @@ class OutputImage:
                                 elem_classes=["output-image"])
         output_image.change(self._set_output_image, inputs=[output_image])
         clipboard_button = gr.Button("" + lang_util.get_text("clipboard"), elem_classes=["clipboard"])
-        clipboard_button.click(self._notify, inputs=[output_image], _js=javascript, queue=True)
+        clipboard_button.click(self._notify, _js=javascript, queue=True)
         if self.transfer_target_lang_key is not None:
             self.transfer_button = gr.Button(lang_util.get_text(self.transfer_target_lang_key))
         self.output_image = output_image
