@@ -75,6 +75,9 @@ coverage.xml
 /script.js
 /style.css
 /webui.bat
-/webui.py
+/webui.pys
 /webui.sh
 /webui-macos-env.sh
+/build/AI_Assistant/
+/dist/AI_Assistant/
+/webui.py
