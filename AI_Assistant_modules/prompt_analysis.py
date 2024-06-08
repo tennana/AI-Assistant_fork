@@ -30,6 +30,7 @@ class PromptAnalysis:
             inputs=[input_image],
             outputs=self.prompt
         )
+        return [self.prompt, self.negative_prompt]
 
     def process_prompt_analysis(self, input_image_path):
         if self.model is None:
