@@ -22,7 +22,7 @@ class NormalMap:
             with gr.Column():
                 with gr.Row():
                     with gr.Column():
-                        self.input_image = gr.Image(label=lang_util.get_text("input_image"), tool="editor",
+                        self.input_image = gr.Image(label=lang_util.get_text("input_lineart"), tool="editor",
                                                     source="upload",
                                                     type='filepath', interactive=True)
                     with gr.Column():
@@ -30,7 +30,7 @@ class NormalMap:
                 with gr.Row():
                     [prompt, nega] = PromptAnalysis().layout(lang_util, self.input_image)
                 with gr.Row():
-                    fidelity = gr.Slider(minimum=0.75, maximum=1.5, value=1.0, step=0.01, interactive=True,
+                    fidelity = gr.Slider(minimum=0.75, maximum=1.5, value=1.25, step=0.01, interactive=True,
                                          label=lang_util.get_text("lineart_fidelity"))
                 with gr.Row():
                     generate_button = gr.Button(lang_util.get_text("generate"))
