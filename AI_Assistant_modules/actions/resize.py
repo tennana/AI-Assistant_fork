@@ -16,7 +16,7 @@ class ImageResize:
         self.output = None
 
     def layout(self, transfer_target_lang_key=None):
-        lang_util = self.app_config
+        lang_util = self.app_config.lang_util
         with gr.Row() as self.block:
             with gr.Column():
                 with gr.Row():

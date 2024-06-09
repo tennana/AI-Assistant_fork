@@ -17,7 +17,7 @@ class Img2Img:
         self.output = None
 
     def layout(self, transfer_target_lang_key=None):
-        lang_util = self.app_config
+        lang_util = self.app_config.lang_util
         with gr.Row():
             with gr.Column():
                 with gr.Row():
